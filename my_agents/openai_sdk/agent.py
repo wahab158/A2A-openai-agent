@@ -16,6 +16,7 @@
 
 from datetime import datetime
 import traceback
+import os
 
 # 🧠 OpenAI Agents SDK - Agent and Runner
 from agents import Agent, Runner, function_tool
@@ -23,6 +24,8 @@ from agents import Agent, Runner, function_tool
 # 🔐 Load environment variables (like API keys) from a `.env` file
 from dotenv import load_dotenv
 load_dotenv()  # Load variables like OPENAI_API_KEY into the system
+
+MODEL_NAME = os.getenv("OPENAI_MODEL_NAME", "gpt-4o-mini")
 
 
 # -----------------------------------------------------------------------------
@@ -56,8 +59,13 @@ class TellTimeAgent:
         """
         return Agent(
             name="tell_time_agent",
-            instructions="You are a helpful assistant that tells the current time. Reply with the current time in the format YYYY-MM-DD HH:MM:SS when asked about time.",
-            model="gpt-4o-mini",  # Using OpenAI's efficient model
+            instructions=(
+                "You are a helpful and versatile AI assistant. "
+                "You can answer general questions, have conversations, and provide information. "
+                "If the user asks about the current time, use the `get_current_time` tool. "
+                "Otherwise, respond naturally based on your capabilities."
+            ),
+            model=MODEL_NAME,
             tools=[get_current_time]
         )
 

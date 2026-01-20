@@ -120,7 +120,7 @@ class A2AServer:
         try:
             # Step 1: Parse incoming JSON body
             body = await request.json()
-            print("\n🔍 Incoming JSON:", json.dumps(body, indent=2))  # Log input for visibility
+            print("\nIncoming JSON:", json.dumps(body, indent=2))  # Log input for visibility
 
             # Step 2: Parse and validate request using discriminated union
             json_rpc = A2ARequest.validate_python(body)
