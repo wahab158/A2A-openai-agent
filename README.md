@@ -81,8 +81,8 @@ a2a_openai_agent/
 ### 1. Clone and navigate to the repo
 
 ```bash
-git clone https://github.com/wahab158/A2A-openai-ageny.git
-cd A2A-openai-ageny
+git clone https://github.com/wahab158/A2A-openai-agent.git
+cd A2A-openai-agent
 ```
 
 ### 2. Setup with `uv` (Recommended)
